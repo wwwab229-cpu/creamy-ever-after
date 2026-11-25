@@ -145,6 +145,9 @@
     }
     @media(prefers-reduced-motion:reduce){.floating-card,.floating-card img,.floating-card-info,.floating-card-index{transition:none}}
 
+    /* Keep the new post-gallery content visible even if scroll-reveal scripts are delayed or blocked */
+    #gifts.reveal,#gifts .reveal,#moments.reveal,#moments .reveal,#order-process.reveal,#order-process .reveal{opacity:1!important;transform:none!important}
+
   </style>
 </head>
 <body class="bg-cream-50 text-espresso-900 font-sans antialiased selection:bg-sunshine-400 selection:text-espresso-900 overflow-x-hidden">
