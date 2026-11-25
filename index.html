@@ -155,6 +155,45 @@
     .group:hover .moment-art svg{transform:translateY(-3px) scale(1.06)}
     @media(max-width:640px){.moment-art{height:88px;margin-bottom:10px}.moment-art svg{height:82px;width:116px}}
 
+    /* Responsive visibility and sizing: keep every section readable without changing the approved design */
+    @media(max-width:767px){
+      main{width:100%;max-width:100%;gap:clamp(2.5rem,9vw,4rem)!important}
+      main section,footer{min-width:0;max-width:100%}
+      main .reveal,main .reveal.revealed,main section article.reveal{opacity:1!important;transform:none!important;visibility:visible!important}
+      main section h1{font-size:clamp(2.35rem,10.4vw,3.8rem)!important;line-height:.98!important;overflow-wrap:normal}
+      main section h2{font-size:clamp(1.65rem,7.2vw,2.45rem)!important;line-height:1.08!important;overflow-wrap:break-word}
+      main section h3{overflow-wrap:break-word}
+      main section p{font-size:clamp(.82rem,3.5vw,.94rem);line-height:1.65}
+      main section .grid{min-width:0}
+      main section article{min-width:0}
+      #customize h2{font-size:clamp(1.7rem,7.5vw,2.4rem)!important}
+      #order-process .grid{grid-template-columns:minmax(0,1fr)}
+      footer .grid{min-width:0}
+      footer .grid.grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+      footer a,footer button{max-width:100%}
+      footer p{overflow-wrap:break-word}
+      footer .pill-btn{white-space:normal;text-align:center}
+    }
+    @media(max-width:380px){
+      header .max-w-6xl{gap:8px!important;padding-left:12px!important;padding-right:12px!important}
+      header .logo-placeholder{min-width:0!important;padding:5px 7px!important}
+      header #header-whatsapp-button,header #menu-button{width:36px;height:36px;flex:0 0 36px}
+      main{padding-left:12px!important;padding-right:12px!important}
+      main section:first-child{padding:18px!important}
+      main section:first-child h1{font-size:clamp(2.2rem,10vw,2.65rem)!important}
+      footer .grid.grid-cols-2{gap:8px!important}
+      footer .grid.grid-cols-2>a,footer .grid.grid-cols-2>div{padding:9px!important;gap:7px!important}
+      footer .grid.grid-cols-2 span span:last-child{font-size:9px!important}
+    }
+    @media(min-width:641px) and (max-width:1023px){
+      main{width:100%;max-width:100%;padding-left:clamp(20px,4vw,36px)!important;padding-right:clamp(20px,4vw,36px)!important;gap:clamp(3rem,7vw,5rem)!important}
+      main section:first-child h1{font-size:clamp(3.2rem,6.2vw,4.4rem)!important;line-height:.98!important}
+      main section h2{font-size:clamp(2rem,4.4vw,3rem)!important}
+      main .reveal,main .reveal.revealed,main section article.reveal{opacity:1!important;transform:none!important;visibility:visible!important}
+      footer .grid{min-width:0}
+      footer .grid.grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+    }
+
     /* Keep the new post-gallery content visible even if scroll-reveal scripts are delayed or blocked */
     #gifts.reveal,#gifts .reveal,#moments.reveal,#moments .reveal,#order-process.reveal,#order-process .reveal{opacity:1!important;transform:none!important}
 
