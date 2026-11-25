@@ -54,9 +54,9 @@
       .pill-btn{min-height:44px;justify-content:center}
       main section:first-child .photo-slot{min-height:210px!important}
       #creations .grid{gap:10px!important}
-      #customize,#about{scroll-margin-top:80px}
+      #customize,#gifts{scroll-margin-top:80px}
       #customize{padding:24px!important;border-radius:24px!important}
-      #customize .photo-slot,#about .photo-slot{min-height:220px!important}
+      #customize .photo-slot,#gifts .photo-slot{min-height:220px!important}
       footer .max-w-6xl{padding-left:16px!important;padding-right:16px!important}
       footer .grid{gap:24px!important}
       footer .sm\\:text-right{text-align:left!important}
@@ -160,8 +160,8 @@
       </a>
       <nav class="hidden md:flex items-center gap-6 text-[11px] font-extrabold uppercase tracking-wider">
         <a href="#creations" class="hover:text-tangerine-500 transition-colors">Our Creations</a>
+        <a href="#gifts" class="hover:text-tangerine-500 transition-colors">Gifts</a>
         <a href="#customize" class="hover:text-tangerine-500 transition-colors">Custom Orders</a>
-        <a href="#about" class="hover:text-tangerine-500 transition-colors">Our Story</a>
         <a href="#contact" class="hover:text-tangerine-500 transition-colors">Contact</a>
       </nav>
       <div class="flex items-center gap-2">
@@ -175,8 +175,8 @@
     </div>
     <nav id="mobile-nav" class="hidden md:hidden bg-cream-50 border-t border-cream-200 px-5 py-4 space-y-3 text-xs font-extrabold uppercase tracking-wider">
       <a href="#creations" class="mobile-link block py-1">Our Creations</a>
+      <a href="#gifts" class="mobile-link block py-1">Gifts</a>
       <a href="#customize" class="mobile-link block py-1">Custom Orders</a>
-      <a href="#about" class="mobile-link block py-1">Our Story</a>
       <a href="#contact" class="mobile-link block py-1">Contact / Order</a>
     </nav>
   </header>
@@ -312,26 +312,47 @@
       </div>
     </section>
 
-    <section id="about" class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
-      <div class="photo-slot min-h-[250px] sm:min-h-[360px] rounded-[1.8rem]">
-        <img class="slot-photo hidden absolute inset-0 w-full h-full object-cover" src="assets/images/about.jpg" alt="Creamy Ever After bakery work" /><div class="p-6"><i data-lucide="image" class="w-9 h-9 mx-auto mb-3"></i><p class="text-xs font-extrabold uppercase tracking-wider">Bakery / behind-the-scenes photo</p><p class="text-[11px] mt-1">Real work image to be added</p></div>
-      </div>
-      <div class="space-y-4">
-        <span class="text-[10px] font-extrabold uppercase tracking-[.2em] text-tangerine-600">OUR STORY</span>
-        <h2 class="font-display text-4xl sm:text-5xl uppercase leading-[.98]">A LITTLE STORY, A LOT OF SWEETNESS.</h2>
-        <p class="text-sm text-espresso-800/80 leading-relaxed">Welcome to Creamy Ever After. Browse our creations, ask about available options, or tell us about a bake you would like to customize.</p>
-        <a href="#contact" class="inline-flex items-center gap-2 text-xs font-extrabold uppercase tracking-wider hover:text-tangerine-600">Get in touch <span aria-hidden="true">→</span></a>
+    <section id="gifts" class="relative overflow-hidden rounded-[2rem] sm:rounded-[2.25rem] border border-[#E7DCCF] bg-[#F7F1E9] px-6 py-8 sm:px-10 sm:py-11 reveal" aria-labelledby="gifts-title">
+      <div aria-hidden="true" class="pointer-events-none absolute -right-12 -top-16 h-52 w-52 rounded-full border-[22px] border-[#7650A8]/[.07]"></div>
+      <div class="relative grid grid-cols-1 md:grid-cols-12 gap-7 md:gap-10 items-center">
+        <div class="md:col-span-7 space-y-4">
+          <span class="inline-flex items-center gap-2 text-[10px] font-extrabold uppercase tracking-[.2em] text-tangerine-600"><i data-lucide="gift" class="h-4 w-4"></i> THOUGHTFUL GIFTS, MADE SWEET</span>
+          <h2 id="gifts-title" class="font-display text-4xl sm:text-5xl uppercase leading-[.98] text-[#38251F]">A LITTLE GIFT.<br><span class="text-[#7650A8]">A LOT OF JOY.</span></h2>
+          <p class="max-w-xl text-sm text-[#705C50] leading-relaxed">Looking for something thoughtful? We prepare customized gifts and sweet gift arrangements on customer request. Share your idea, preferred details and occasion, and let’s talk about creating something personal.</p>
+          <a href="#customize" class="inline-flex items-center gap-2 rounded-full bg-[#7650A8] px-5 py-3 text-[10px] font-extrabold uppercase tracking-[.14em] text-white shadow-md shadow-[#7650A8]/15 transition hover:-translate-y-0.5 hover:bg-[#684493]">Explore custom gifts <i data-lucide="arrow-up-right" class="h-4 w-4"></i></a>
+        </div>
+        <div class="md:col-span-5">
+          <div class="relative mx-auto flex min-h-[220px] max-w-[360px] items-center justify-center overflow-hidden rounded-[1.7rem] border border-white/80 bg-[#EFE5D9] p-6 shadow-[0_16px_38px_rgba(61,36,25,.10)]">
+            <div aria-hidden="true" class="absolute inset-4 rounded-[1.25rem] border border-[#7650A8]/15"></div>
+            <div class="relative flex flex-col items-center text-center">
+              <div class="mb-4 flex h-20 w-20 items-center justify-center rounded-[1.7rem] bg-[#7650A8] text-white shadow-lg shadow-[#7650A8]/20"><i data-lucide="gift" class="h-10 w-10"></i></div>
+              <p class="font-display text-2xl uppercase tracking-wide text-[#493329]">Made to feel special</p>
+              <p class="mt-2 max-w-[230px] text-xs leading-relaxed text-[#806B5E]">Personal touches for thoughtful gifting and sweet surprises.</p>
+              <span class="mt-4 text-[9px] font-extrabold uppercase tracking-[.2em] text-[#7650A8]">YOUR IDEA • YOUR OCCASION</span>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section id="moments" class="space-y-6 reveal"><div class="flex flex-col sm:flex-row sm:items-end justify-between gap-3"><div><span class="text-[10px] font-extrabold uppercase tracking-[.2em] text-tangerine-600">MADE FOR YOUR MOMENTS</span><h2 class="font-display text-4xl sm:text-5xl uppercase leading-none mt-2">SWEETNESS FOR EVERY OCCASION.</h2></div><p class="text-sm text-espresso-800/75 max-w-sm leading-relaxed">Little moments, big celebrations and thoughtful surprises — there’s always a reason to make it sweet.</p></div><div class="grid grid-cols-1 sm:grid-cols-3 gap-4"><article class="rounded-2xl border border-cream-300 bg-cream-100 p-5 sm:p-6 reveal reveal-delay-1"><span class="text-tangerine-600 text-xs font-extrabold tracking-widest">01</span><h3 class="font-display text-2xl uppercase mt-3">Celebration bakes</h3><p class="text-sm mt-2 text-espresso-800/75 leading-relaxed">A reserved space for cakes and baked creations for special moments.</p></article><article class="rounded-2xl border border-cream-300 bg-cream-100 p-5 sm:p-6 reveal reveal-delay-2"><span class="text-tangerine-600 text-xs font-extrabold tracking-widest">02</span><h3 class="font-display text-2xl uppercase mt-3">Sweet treats</h3><p class="text-sm mt-2 text-espresso-800/75 leading-relaxed">See desserts and treats as the real catalogue is added.</p></article><article class="rounded-2xl border border-cream-300 bg-cream-100 p-5 sm:p-6 reveal reveal-delay-3"><span class="text-tangerine-600 text-xs font-extrabold tracking-widest">03</span><h3 class="font-display text-2xl uppercase mt-3">Custom ideas</h3><p class="text-sm mt-2 text-espresso-800/75 leading-relaxed">Share inspiration, preferences and occasion details to discuss a custom order.</p></article></div></section>
+    <section id="moments" class="space-y-6 reveal" aria-labelledby="moments-title">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-3">
+        <div><span class="text-[10px] font-extrabold uppercase tracking-[.2em] text-tangerine-600">MADE FOR YOUR MOMENTS</span><h2 id="moments-title" class="font-display text-4xl sm:text-5xl uppercase leading-none mt-2">A SWEET TOUCH FOR EVERY OCCASION.</h2></div>
+        <p class="text-sm text-espresso-800/75 max-w-sm leading-relaxed">From little surprises to once-in-a-lifetime celebrations, make your moments feel a little more personal.</p>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        <article class="group rounded-2xl border border-cream-300 bg-cream-100 p-5 sm:p-6 transition duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-espresso-900/5 reveal reveal-delay-1"><div class="flex h-11 w-11 items-center justify-center rounded-2xl bg-[#7650A8]/10 text-[#7650A8]"><i data-lucide="cake" class="h-5 w-5"></i></div><span class="mt-5 block text-[9px] font-extrabold uppercase tracking-[.18em] text-tangerine-600">01 / CELEBRATE</span><h3 class="font-display text-2xl uppercase mt-2">Birthdays</h3><p class="text-sm mt-2 text-espresso-800/75 leading-relaxed">Make birthday wishes sweeter with a cake, cupcakes or brownies customized around your idea.</p></article>
+        <article class="group rounded-2xl border border-cream-300 bg-cream-100 p-5 sm:p-6 transition duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-espresso-900/5 reveal reveal-delay-2"><div class="flex h-11 w-11 items-center justify-center rounded-2xl bg-[#7650A8]/10 text-[#7650A8]"><i data-lucide="party-popper" class="h-5 w-5"></i></div><span class="mt-5 block text-[9px] font-extrabold uppercase tracking-[.18em] text-tangerine-600">02 / GATHER</span><h3 class="font-display text-2xl uppercase mt-2">Celebrations</h3><p class="text-sm mt-2 text-espresso-800/75 leading-relaxed">Add a thoughtful sweet touch to family gatherings, milestones and special days.</p></article>
+        <article class="group rounded-2xl border border-cream-300 bg-cream-100 p-5 sm:p-6 transition duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-espresso-900/5 reveal reveal-delay-3"><div class="flex h-11 w-11 items-center justify-center rounded-2xl bg-[#7650A8]/10 text-[#7650A8]"><i data-lucide="gift" class="h-5 w-5"></i></div><span class="mt-5 block text-[9px] font-extrabold uppercase tracking-[.18em] text-tangerine-600">03 / SURPRISE</span><h3 class="font-display text-2xl uppercase mt-2">Sweet surprises</h3><p class="text-sm mt-2 text-espresso-800/75 leading-relaxed">Request a customized sweet gift arrangement to make someone’s day feel extra special.</p></article>
+      </div>
+    </section>
 
     <section id="customize" class="bg-espresso-900 text-cream-50 rounded-[2rem] sm:rounded-[2.25rem] p-6 sm:p-10 lg:p-12 relative overflow-hidden">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
         <div class="space-y-4">
           <span class="inline-flex px-3 py-1 rounded-full bg-sunshine-400 text-espresso-900 text-[10px] font-extrabold uppercase tracking-wider">CUSTOM ORDERS</span>
           <h2 class="font-display text-4xl sm:text-5xl uppercase leading-[.98]">HAVE SOMETHING SPECIAL IN MIND?</h2>
-          <p class="text-sm text-cream-100/80 leading-relaxed max-w-md">Tell us what you are looking for and share your preferences. We’ll discuss your custom request with you directly on WhatsApp.</p>
+          <p class="text-sm text-cream-100/80 leading-relaxed max-w-md">From homemade cakes, cupcakes and brownies to thoughtful sweet gifts, share your idea and preferred customization. We’ll discuss the details of your request with you directly.</p>
           <a href="#contact" class="pill-btn inline-flex items-center gap-2 px-5 py-3 rounded-full bg-sunshine-400 text-espresso-900 text-xs font-extrabold uppercase tracking-wider">Share your idea <i data-lucide="arrow-up-right" class="w-4 h-4"></i></a>
         </div>
         <div class="photo-slot min-h-[230px] sm:min-h-[300px] rounded-[1.5rem] border-cream-50/30 bg-espresso-800 text-cream-100/75">
@@ -340,7 +361,15 @@
       </div>
     </section>
 
-    <section id="order-process" class="space-y-7 reveal"><div><span class="text-[10px] font-extrabold uppercase tracking-[.2em] text-tangerine-600">HOW TO ORDER</span><h2 class="font-display text-4xl sm:text-5xl uppercase leading-none mt-2">FROM YOUR IDEA TO YOUR ORDER.</h2></div><div class="grid grid-cols-1 sm:grid-cols-3 gap-4"><div class="border-t-2 border-sunshine-500 pt-4 reveal reveal-delay-1"><span class="font-display text-4xl">01</span><h3 class="font-extrabold uppercase text-sm mt-2">Browse or share</h3><p class="text-sm mt-2 text-espresso-800/75 leading-relaxed">Explore the gallery or send your inspiration and order idea.</p></div><div class="border-t-2 border-sunshine-500 pt-4 reveal reveal-delay-2"><span class="font-display text-4xl">02</span><h3 class="font-extrabold uppercase text-sm mt-2">Discuss details</h3><p class="text-sm mt-2 text-espresso-800/75 leading-relaxed">Discuss design, quantity, occasion and timing.</p></div><div class="border-t-2 border-sunshine-500 pt-4 reveal reveal-delay-3"><span class="font-display text-4xl">03</span><h3 class="font-extrabold uppercase text-sm mt-2">Confirm</h3><p class="text-sm mt-2 text-espresso-800/75 leading-relaxed">Confirm the order details directly with the bakery.</p></div></div></section>
+    <section id="order-process" class="space-y-7 reveal" aria-labelledby="order-process-title">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-3"><div><span class="text-[10px] font-extrabold uppercase tracking-[.2em] text-tangerine-600">HOW TO ORDER</span><h2 id="order-process-title" class="font-display text-4xl sm:text-5xl uppercase leading-none mt-2">YOUR IDEA. YOUR SWEET ORDER.</h2></div><p class="max-w-sm text-sm leading-relaxed text-espresso-800/75">A simple, personal process — just tell us what you have in mind.</p></div>
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        <div class="rounded-2xl border border-cream-300 bg-white/60 p-5 reveal reveal-delay-1"><span class="font-display text-4xl text-[#7650A8]">01</span><h3 class="font-extrabold uppercase text-xs mt-3 tracking-wider">Share your idea</h3><p class="text-sm mt-2 text-espresso-800/75 leading-relaxed">Tell us what you’d like — a cake, cupcakes, brownies or a sweet gift arrangement.</p></div>
+        <div class="rounded-2xl border border-cream-300 bg-white/60 p-5 reveal reveal-delay-2"><span class="font-display text-4xl text-[#7650A8]">02</span><h3 class="font-extrabold uppercase text-xs mt-3 tracking-wider">Personalize the details</h3><p class="text-sm mt-2 text-espresso-800/75 leading-relaxed">Discuss your preferred design, quantity, occasion and required date.</p></div>
+        <div class="rounded-2xl border border-cream-300 bg-white/60 p-5 reveal reveal-delay-3"><span class="font-display text-4xl text-[#7650A8]">03</span><h3 class="font-extrabold uppercase text-xs mt-3 tracking-wider">Confirm your order</h3><p class="text-sm mt-2 text-espresso-800/75 leading-relaxed">Review and confirm the agreed order details directly with Creamy Ever After.</p></div>
+      </div>
+      <div class="pt-1"><a href="#contact" class="pill-btn inline-flex items-center gap-2 rounded-full bg-sunshine-400 px-5 py-3 text-xs font-extrabold uppercase tracking-wider text-espresso-900">Start your order <i data-lucide="arrow-up-right" class="h-4 w-4"></i></a></div>
+    </section>
   </main>
 
   <footer id="contact" class="bg-espresso-900 text-cream-50 mt-4">
