@@ -110,34 +110,49 @@
   </header>
 
   <main id="home" class="max-w-6xl mx-auto px-4 sm:px-6 pt-5 sm:pt-7 pb-16 space-y-16 sm:space-y-24">
-    <!-- Hero: original bold editorial style and warm palette retained -->
-    <section class="bg-cream-100 rounded-[2rem] sm:rounded-[2.25rem] border border-cream-300/80 p-6 sm:p-10 lg:p-12 relative overflow-hidden shadow-sm">
-      <div class="relative z-10">
-        <span class="inline-flex items-center gap-2 text-[10px] sm:text-xs font-extrabold uppercase tracking-[.2em] text-tangerine-600 mb-4">
-          <span class="w-2 h-2 rounded-full bg-sunshine-500"></span> CREAMY EVER AFTER
-        </span>
-        <h1 class="font-display text-[3.35rem] sm:text-[5.3rem] lg:text-[6.8rem] uppercase leading-[.94] tracking-tight max-w-4xl">
-          A LITTLE MORE<br class="hidden sm:block" /> <span class="text-tangerine-500">SWEETNESS</span><br class="hidden sm:block" /> IN EVERY MOMENT.
-        </h1>
-      </div>
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end mt-7 sm:mt-9 relative z-10">
-        <div class="lg:col-span-5 space-y-5 pb-1">
-          <h2 class="font-display text-2xl sm:text-3xl uppercase leading-tight">BAKED FOR YOUR MOMENTS.</h2>
-          <p class="text-sm text-espresso-800/80 max-w-sm leading-relaxed">Explore our baking creations or share what you have in mind. For orders and custom requests, simply get in touch with us on WhatsApp.</p>
-          <div class="flex flex-wrap items-center gap-4 pt-1">
-            <a href="#contact" class="pill-btn inline-flex items-center gap-2 px-6 py-3 rounded-full bg-sunshine-400 text-espresso-900 text-xs font-extrabold uppercase tracking-wider">Order on WhatsApp <i data-lucide="arrow-up-right" class="w-4 h-4"></i></a>
-            <a href="#creations" class="text-xs font-extrabold uppercase tracking-wider hover:text-tangerine-500">Explore creations <span aria-hidden="true">→</span></a>
+    <!-- Hero: premium editorial layout with balanced purple brand accents -->
+    <section class="hero-section relative overflow-hidden rounded-[2rem] sm:rounded-[2.25rem] border border-[#E7DCCF] bg-[#F7F1E9] p-6 sm:p-9 lg:p-12 shadow-sm">
+      <div aria-hidden="true" class="pointer-events-none absolute -right-20 -top-24 h-64 w-64 rounded-full bg-[#7650A8]/10 blur-2xl"></div>
+      <div aria-hidden="true" class="pointer-events-none absolute left-[42%] bottom-[-6rem] h-52 w-52 rounded-full border-[28px] border-[#7650A8]/[0.07]"></div>
+      <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
+        <div class="lg:col-span-6 space-y-5 sm:space-y-6">
+          <span class="inline-flex items-center gap-2 rounded-full border border-[#7650A8]/20 bg-white/70 px-3.5 py-2 text-[10px] sm:text-xs font-extrabold uppercase tracking-[.18em] text-[#684493]">
+            <span class="h-2 w-2 rounded-full bg-[#7650A8]"></span> Made with care, for your moments
+          </span>
+          <h1 class="font-display text-[3.35rem] sm:text-[5.1rem] lg:text-[5.8rem] uppercase leading-[.93] tracking-tight text-[#38251F]">
+            EVERY MOMENT<br />DESERVES A LITTLE<br /><span class="text-[#7650A8]">SWEETNESS.</span>
+          </h1>
+          <div class="max-w-md space-y-3">
+            <h2 class="font-display text-xl sm:text-2xl uppercase tracking-wide text-[#493329]">Beautifully made. Sweetly remembered.</h2>
+            <p class="text-sm sm:text-[15px] text-[#705C50] leading-relaxed">Explore our baking creations or share the idea you have in mind. We’d love to help make your occasion feel a little more special.</p>
+          </div>
+          <div class="flex flex-wrap items-center gap-3 pt-1">
+            <a href="#contact" class="pill-btn inline-flex items-center justify-center gap-2 rounded-full border-[#4D326B] bg-[#684493] px-5 sm:px-6 py-3.5 text-xs font-extrabold uppercase tracking-wider text-white shadow-[0_2px_0_#4D326B] hover:bg-[#7650A8]">Discuss an order <i data-lucide="arrow-up-right" class="h-4 w-4"></i></a>
+            <a href="#creations" class="inline-flex items-center gap-2 rounded-full px-3 py-3 text-xs font-extrabold uppercase tracking-wider text-[#684493] transition-colors hover:text-[#3D2458]">Explore creations <span aria-hidden="true">→</span></a>
+          </div>
+          <div class="flex flex-wrap gap-x-5 gap-y-2 pt-2 text-[10px] font-bold uppercase tracking-[.12em] text-[#8A7567]">
+            <span class="inline-flex items-center gap-1.5"><i data-lucide="heart" class="h-3.5 w-3.5 text-[#7650A8]"></i> Thoughtful details</span>
+            <span class="inline-flex items-center gap-1.5"><i data-lucide="sparkles" class="h-3.5 w-3.5 text-[#7650A8]"></i> Made for your moments</span>
           </div>
         </div>
-        <div class="lg:col-span-7">
-          <div class="bg-sunshine-400 rounded-[1.8rem] p-3 sm:p-4 border border-espresso-900/10">
-            <div class="photo-slot min-h-[230px] sm:min-h-[330px] rounded-[1.35rem] overflow-hidden" role="img" aria-label="Space reserved for a real Creamy Ever After bakery photograph">
-              <img class="slot-photo hidden absolute inset-0 w-full h-full object-cover" src="assets/images/hero.jpg" alt="Creamy Ever After featured creation" /><div class="p-6">
-                <i data-lucide="image" class="w-9 h-9 mx-auto mb-3"></i>
-                <p class="text-xs font-extrabold uppercase tracking-wider">Your bakery photo goes here</p>
-                <p class="text-[11px] mt-1">Real product / work image to be added</p>
+        <div class="lg:col-span-6 relative">
+          <div class="absolute -right-2 -top-3 sm:right-0 sm:-top-4 z-10 rounded-2xl border border-white/70 bg-white/90 px-4 py-3 shadow-lg shadow-[#4D326B]/10 backdrop-blur-sm">
+            <p class="text-[9px] font-extrabold uppercase tracking-[.18em] text-[#8A7567]">A little something</p>
+            <p class="mt-1 font-display text-lg uppercase text-[#684493]">Made with love</p>
+          </div>
+          <div class="rounded-[1.8rem] bg-[#684493] p-2.5 sm:p-3 shadow-xl shadow-[#4D326B]/15">
+            <div class="photo-slot relative min-h-[280px] sm:min-h-[390px] lg:min-h-[430px] rounded-[1.35rem] overflow-hidden border border-white/50 bg-gradient-to-br from-[#F5EAF8] via-[#E9DDF0] to-[#E5D4E8] text-[#684493]" role="img" aria-label="Space reserved for a real Creamy Ever After bakery photograph">
+              <img class="slot-photo hidden absolute inset-0 h-full w-full object-cover" src="assets/images/hero.jpg" alt="Creamy Ever After featured creation" />
+              <div class="p-6">
+                <i data-lucide="image" class="mx-auto mb-3 h-10 w-10"></i>
+                <p class="text-xs font-extrabold uppercase tracking-wider">Your signature creation</p>
+                <p class="mt-1 text-[11px]">Real bakery photograph to be added</p>
               </div>
             </div>
+          </div>
+          <div class="absolute -bottom-4 -left-2 sm:-left-5 rounded-2xl border border-[#E7DCCF] bg-[#FFFDF9] px-4 py-3 shadow-lg shadow-[#38251F]/10">
+            <p class="text-[9px] font-extrabold uppercase tracking-[.16em] text-[#8A7567]">For every occasion</p>
+            <p class="mt-1 text-xs font-extrabold text-[#493329]">Your idea, our creation.</p>
           </div>
         </div>
       </div>
