@@ -69,7 +69,9 @@
     @media(min-width:1024px){
       main{width:min(100%,1200px)}
     }
-\n  </style>
+\n  
+    .reveal{opacity:0;transform:translate3d(0,24px,0);transition:opacity .65s ease,transform .65s cubic-bezier(.2,.65,.3,1)} .reveal.revealed{opacity:1;transform:none} .reveal-delay-1{transition-delay:.08s}.reveal-delay-2{transition-delay:.16s}.reveal-delay-3{transition-delay:.24s} .photo-slot{transition:transform .3s ease,box-shadow .3s ease}.photo-slot:hover{transform:translateY(-3px);box-shadow:0 10px 25px rgba(42,24,16,.08)} @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}.photo-slot{transition:none}}
+</style>
 </head>
 <body class="bg-cream-50 text-espresso-900 font-sans antialiased selection:bg-sunshine-400 selection:text-espresso-900 overflow-x-hidden">
   <!-- Simple announcement strip: no unverified offers or claims -->
@@ -83,8 +85,8 @@
         CREAMY EVER AFTER<span class="text-tangerine-500">.</span>
       </a>
       <nav class="hidden md:flex items-center gap-6 text-[11px] font-extrabold uppercase tracking-wider">
-        <a href="#creations" class="hover:text-tangerine-500 transition-colors">Our Creations</a>
-        <a href="#customize" class="hover:text-tangerine-500 transition-colors">Customize</a>
+        <a href="#order-types" class="hover:text-tangerine-500 transition-colors">Explore</a>
+        <a href="#customize" class="hover:text-tangerine-500 transition-colors">Custom Orders</a>
         <a href="#about" class="hover:text-tangerine-500 transition-colors">About</a>
         <a href="#contact" class="hover:text-tangerine-500 transition-colors">Contact</a>
       </nav>
@@ -96,8 +98,8 @@
       </div>
     </div>
     <nav id="mobile-nav" class="hidden md:hidden bg-cream-50 border-t border-cream-200 px-5 py-4 space-y-3 text-xs font-extrabold uppercase tracking-wider">
-      <a href="#creations" class="mobile-link block py-1">Our Creations</a>
-      <a href="#customize" class="mobile-link block py-1">Customize</a>
+      <a href="#order-types" class="mobile-link block py-1">Explore</a>
+      <a href="#customize" class="mobile-link block py-1">Custom Orders</a>
       <a href="#about" class="mobile-link block py-1">About</a>
       <a href="#contact" class="mobile-link block py-1">Contact / Order</a>
     </nav>
@@ -137,6 +139,8 @@
       </div>
     </section>
 
+
+    <section id="order-types" class="space-y-6 reveal"><div class="flex flex-col sm:flex-row sm:items-end justify-between gap-3"><div><span class="text-[10px] font-extrabold uppercase tracking-[.2em] text-tangerine-600">MADE FOR YOUR OCCASIONS</span><h2 class="font-display text-4xl sm:text-5xl uppercase leading-none mt-2">SOMETHING SWEET, YOUR WAY.</h2></div><p class="text-sm text-espresso-800/75 max-w-sm leading-relaxed">Browse our real work as it is added, or contact us to discuss an idea for your occasion.</p></div><div class="grid grid-cols-1 sm:grid-cols-3 gap-4"><article class="rounded-2xl border border-cream-300 bg-cream-100 p-5 sm:p-6 reveal reveal-delay-1"><span class="text-tangerine-600 text-xs font-extrabold tracking-widest">01</span><h3 class="font-display text-2xl uppercase mt-3">Celebration bakes</h3><p class="text-sm mt-2 text-espresso-800/75 leading-relaxed">A reserved space for cakes and baked creations for special moments.</p></article><article class="rounded-2xl border border-cream-300 bg-cream-100 p-5 sm:p-6 reveal reveal-delay-2"><span class="text-tangerine-600 text-xs font-extrabold tracking-widest">02</span><h3 class="font-display text-2xl uppercase mt-3">Sweet treats</h3><p class="text-sm mt-2 text-espresso-800/75 leading-relaxed">See desserts and treats as the real catalogue is added.</p></article><article class="rounded-2xl border border-cream-300 bg-cream-100 p-5 sm:p-6 reveal reveal-delay-3"><span class="text-tangerine-600 text-xs font-extrabold tracking-widest">03</span><h3 class="font-display text-2xl uppercase mt-3">Custom ideas</h3><p class="text-sm mt-2 text-espresso-800/75 leading-relaxed">Share inspiration, preferences and occasion details to discuss a custom order.</p></article></div></section>
     <!-- Gallery: reserved spaces, not stock or invented product photos -->
     <section id="creations" class="space-y-7">
       <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-3">
@@ -168,6 +172,8 @@
       </div>
     </section>
 
+
+    <section id="order-process" class="space-y-7 reveal"><div><span class="text-[10px] font-extrabold uppercase tracking-[.2em] text-tangerine-600">HOW TO ORDER</span><h2 class="font-display text-4xl sm:text-5xl uppercase leading-none mt-2">FROM YOUR IDEA TO YOUR ORDER.</h2></div><div class="grid grid-cols-1 sm:grid-cols-3 gap-4"><div class="border-t-2 border-sunshine-500 pt-4 reveal reveal-delay-1"><span class="font-display text-4xl">01</span><h3 class="font-extrabold uppercase text-sm mt-2">Browse or share</h3><p class="text-sm mt-2 text-espresso-800/75 leading-relaxed">Explore the gallery or send your inspiration and order idea.</p></div><div class="border-t-2 border-sunshine-500 pt-4 reveal reveal-delay-2"><span class="font-display text-4xl">02</span><h3 class="font-extrabold uppercase text-sm mt-2">Discuss details</h3><p class="text-sm mt-2 text-espresso-800/75 leading-relaxed">Discuss design, quantity, occasion and timing.</p></div><div class="border-t-2 border-sunshine-500 pt-4 reveal reveal-delay-3"><span class="font-display text-4xl">03</span><h3 class="font-extrabold uppercase text-sm mt-2">Confirm</h3><p class="text-sm mt-2 text-espresso-800/75 leading-relaxed">Confirm the order details directly with the bakery.</p></div></div></section>
     <!-- About: intentionally factual and concise -->
     <section id="about" class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
       <div class="photo-slot min-h-[250px] sm:min-h-[360px] rounded-[1.8rem]">
@@ -243,6 +249,9 @@
       menuButton.innerHTML = '<i data-lucide="menu" class="w-5 h-5"></i>';
       lucide.createIcons();
     }));
+
+    const revealEls=document.querySelectorAll('main section, main section article, main section > div > div'); revealEls.forEach(el=>el.classList.add('reveal'));
+    if('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches){const io=new IntersectionObserver((entries,obs)=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('revealed');obs.unobserve(e.target)}}),{threshold:.12,rootMargin:'0px 0px -30px 0px'});document.querySelectorAll('.reveal').forEach(el=>io.observe(el));}else{document.querySelectorAll('.reveal').forEach(el=>el.classList.add('revealed'));}
     document.getElementById('year').textContent = new Date().getFullYear();
     lucide.createIcons();
   </script>
