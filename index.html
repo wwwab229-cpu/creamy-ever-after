@@ -34,7 +34,42 @@
     ::-webkit-scrollbar-track{background:#FFFDF9}
     ::-webkit-scrollbar-thumb{background:#D6CBB9;border-radius:9999px}
     @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.pill-btn{transition:none}}
-  </style>
+  
+    /* Responsive refinement: preserve the approved visual identity while adapting smoothly */
+    *,*::before,*::after{box-sizing:border-box}
+    img,video,svg{max-width:100%}
+    html{scroll-padding-top:90px}
+    body{min-width:320px}
+    .photo-slot{width:100%;overflow:hidden}
+    h1,h2,h3,p,a{overflow-wrap:anywhere}
+    @media(max-width:640px){
+      header .max-w-6xl{height:64px!important}
+      header a[aria-label="Creamy Ever After home"]{font-size:clamp(1rem,4.5vw,1.35rem);letter-spacing:-.03em}
+      #mobile-nav a{padding:10px 4px;min-height:40px}
+      main{padding-left:14px!important;padding-right:14px!important}
+      main section{scroll-margin-top:80px}
+      main section:first-child{padding:clamp(18px,5vw,26px)!important;border-radius:24px!important}
+      main section:first-child h1{font-size:clamp(2.65rem,12vw,3.8rem)!important;line-height:.96!important;letter-spacing:-.045em}
+      main section h2{font-size:clamp(1.85rem,8.5vw,2.6rem)!important;line-height:1.02!important}
+      .pill-btn{min-height:44px;justify-content:center}
+      main section:first-child .photo-slot{min-height:210px!important}
+      #creations .grid{gap:10px!important}
+      #customize,#about{scroll-margin-top:80px}
+      #customize{padding:24px!important;border-radius:24px!important}
+      #customize .photo-slot,#about .photo-slot{min-height:220px!important}
+      footer .max-w-6xl{padding-left:16px!important;padding-right:16px!important}
+      footer .grid{gap:24px!important}
+      footer .sm\\:text-right{text-align:left!important}
+      footer .sm\\:justify-end{justify-content:flex-start!important}
+    }
+    @media(min-width:641px) and (max-width:1023px){
+      main section:first-child h1{font-size:clamp(4rem,8vw,5.5rem)!important}
+      main{gap:4rem!important}
+    }
+    @media(min-width:1024px){
+      main{width:min(100%,1200px)}
+    }
+\n  </style>
 </head>
 <body class="bg-cream-50 text-espresso-900 font-sans antialiased selection:bg-sunshine-400 selection:text-espresso-900 overflow-x-hidden">
   <!-- Simple announcement strip: no unverified offers or claims -->
