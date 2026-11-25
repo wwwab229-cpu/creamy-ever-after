@@ -193,13 +193,43 @@
         </div>
         <p class="text-sm text-espresso-800/75 max-w-sm leading-relaxed">Every creation has a story. Explore our work and find a little inspiration for your next special moment.</p>
       </div>
-      <div class="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-5">
-        <div class="photo-slot aspect-[4/5] rounded-[1.4rem] gallery-slot"><img class="gallery-image hidden w-full h-full object-cover" src="assets/images/gallery/01.jpg" alt="Creamy Ever After creation 1" /><div class="gallery-fallback p-3"><i data-lucide="image" class="w-7 h-7 mx-auto mb-2"></i><p class="text-[10px] font-extrabold uppercase tracking-wider">Product photo 01</p></div></div>
-        <div class="photo-slot aspect-[4/5] rounded-[1.4rem] gallery-slot"><img class="gallery-image hidden w-full h-full object-cover" src="assets/images/gallery/02.jpg" alt="Creamy Ever After creation 2" /><div class="gallery-fallback p-3"><i data-lucide="image" class="w-7 h-7 mx-auto mb-2"></i><p class="text-[10px] font-extrabold uppercase tracking-wider">Product photo 02</p></div></div>
-        <div class="photo-slot aspect-[4/5] rounded-[1.4rem] gallery-slot"><img class="gallery-image hidden w-full h-full object-cover" src="assets/images/gallery/03.jpg" alt="Creamy Ever After creation 3" /><div class="gallery-fallback p-3"><i data-lucide="image" class="w-7 h-7 mx-auto mb-2"></i><p class="text-[10px] font-extrabold uppercase tracking-wider">Product photo 03</p></div></div>
-        <div class="photo-slot aspect-[4/5] rounded-[1.4rem] gallery-slot"><img class="gallery-image hidden w-full h-full object-cover" src="assets/images/gallery/04.jpg" alt="Creamy Ever After creation 4" /><div class="gallery-fallback p-3"><i data-lucide="image" class="w-7 h-7 mx-auto mb-2"></i><p class="text-[10px] font-extrabold uppercase tracking-wider">Product photo 04</p></div></div>
-        <div class="photo-slot aspect-[4/5] rounded-[1.4rem] gallery-slot"><img class="gallery-image hidden w-full h-full object-cover" src="assets/images/gallery/05.jpg" alt="Creamy Ever After creation 5" /><div class="gallery-fallback p-3"><i data-lucide="image" class="w-7 h-7 mx-auto mb-2"></i><p class="text-[10px] font-extrabold uppercase tracking-wider">Product photo 05</p></div></div>
-        <div class="photo-slot aspect-[4/5] rounded-[1.4rem] gallery-slot"><img class="gallery-image hidden w-full h-full object-cover" src="assets/images/gallery/06.jpg" alt="Creamy Ever After creation 6" /><div class="gallery-fallback p-3"><i data-lucide="image" class="w-7 h-7 mx-auto mb-2"></i><p class="text-[10px] font-extrabold uppercase tracking-wider">Product photo 06</p></div></div>
+      <div class="sweet-book-shell mx-auto w-full max-w-5xl">
+        <div class="sweet-book-topline flex items-center justify-between gap-3 mb-4 sm:mb-5">
+          <span class="text-[9px] sm:text-[10px] font-extrabold uppercase tracking-[.2em] text-[#8A7567]">THE SWEET COLLECTION</span>
+          <span class="sweet-book-edition text-[9px] sm:text-[10px] uppercase tracking-[.16em] text-[#8A7567]">A visual journal · No. 01</span>
+        </div>
+        <div class="sweet-book" aria-label="Interactive Creamy Ever After photo book">
+          <div class="sweet-book-spread" id="sweet-book-spread">
+            <article class="sweet-book-page sweet-book-page-left" id="sweet-book-left-page">
+              <div class="sweet-book-page-inner">
+                <div class="sweet-book-page-image-wrap">
+                  <img id="sweet-book-left-image" src="assets/images/gallery/01.jpg" alt="Creamy Ever After creation 1" />
+                  <div class="sweet-book-page-fallback"><span>01</span><i data-lucide="image"></i><small>YOUR CREATION PHOTO</small></div>
+                </div>
+                <div class="sweet-book-page-caption"><span id="sweet-book-left-number">01</span><span>MADE WITH CARE</span></div>
+              </div>
+            </article>
+            <article class="sweet-book-page sweet-book-page-right" id="sweet-book-right-page">
+              <div class="sweet-book-page-inner">
+                <div class="sweet-book-page-image-wrap">
+                  <img id="sweet-book-right-image" src="assets/images/gallery/02.jpg" alt="Creamy Ever After creation 2" />
+                  <div class="sweet-book-page-fallback"><span>02</span><i data-lucide="image"></i><small>YOUR CREATION PHOTO</small></div>
+                </div>
+                <div class="sweet-book-page-caption"><span id="sweet-book-right-number">02</span><span>SWEETLY REMEMBERED</span></div>
+              </div>
+            </article>
+          </div>
+          <div class="sweet-book-spine" aria-hidden="true"></div>
+        </div>
+        <div class="sweet-book-controls flex items-center justify-between gap-3 mt-5 sm:mt-6">
+          <button type="button" id="sweet-book-prev" class="sweet-book-arrow" aria-label="Previous pages" disabled><i data-lucide="arrow-left"></i><span>PREVIOUS</span></button>
+          <div class="sweet-book-progress text-center" aria-live="polite">
+            <span id="sweet-book-current">01</span><span class="mx-1 text-[#B8A99A]">/</span><span>05</span>
+            <div class="sweet-book-progress-track mt-2"><span id="sweet-book-progress-fill"></span></div>
+          </div>
+          <button type="button" id="sweet-book-next" class="sweet-book-arrow" aria-label="Next pages"><span>NEXT</span><i data-lucide="arrow-right"></i></button>
+        </div>
+        <p class="sweet-book-hint text-center mt-4 text-[9px] uppercase tracking-[.16em] text-[#9A8878]">Turn the page to discover more</p>
       </div>
     </section>
 
@@ -329,6 +359,67 @@
     });
         document.querySelectorAll(".slot-photo").forEach(img=>{img.addEventListener("load",()=>{img.classList.remove("hidden");img.parentElement.querySelector("div")?.classList.add("hidden")});img.addEventListener("error",()=>img.classList.add("hidden"));});
     document.querySelectorAll(".gallery-image").forEach(img=>{img.addEventListener("load",()=>{img.classList.remove("hidden");img.parentElement.querySelector(".gallery-fallback").classList.add("hidden");});img.addEventListener("error",()=>img.classList.add("hidden"));});
+
+    // Editorial flipbook: 5 two-page spreads on desktop, single-page turns on mobile.
+    (() => {
+      const spread = document.getElementById('sweet-book-spread');
+      if (!spread) return;
+      const leftPage = document.getElementById('sweet-book-left-page');
+      const rightPage = document.getElementById('sweet-book-right-page');
+      const leftImg = document.getElementById('sweet-book-left-image');
+      const rightImg = document.getElementById('sweet-book-right-image');
+      const leftNum = document.getElementById('sweet-book-left-number');
+      const rightNum = document.getElementById('sweet-book-right-number');
+      const current = document.getElementById('sweet-book-current');
+      const progress = document.getElementById('sweet-book-progress-fill');
+      const prev = document.getElementById('sweet-book-prev');
+      const next = document.getElementById('sweet-book-next');
+      const mobile = window.matchMedia('(max-width: 640px)');
+      const photos = Array.from({length:10},(_,i)=>({src:'assets/images/gallery/'+String(i+1).padStart(2,'0')+'.jpg',alt:'Creamy Ever After creation '+(i+1)}));
+      let index = 0;
+      let busy = false;
+      const pad = n => String(n).padStart(2,'0');
+      function setPhoto(img, number, photo) {
+        const fallback = img.parentElement.querySelector('.sweet-book-page-fallback');
+        img.classList.remove('is-loaded');
+        img.onload = () => { img.classList.add('is-loaded'); fallback.classList.add('hidden'); };
+        img.onerror = () => { img.classList.remove('is-loaded'); fallback.classList.remove('hidden'); };
+        img.src = photo.src;
+        img.alt = photo.alt;
+        number.textContent = pad(photo.number);
+        if (img.complete && img.naturalWidth > 0) { img.classList.add('is-loaded'); fallback.classList.add('hidden'); }
+      }
+      function render() {
+        const isMobile = mobile.matches;
+        const first = index;
+        const second = isMobile ? null : index + 1;
+        leftPage.style.display = isMobile ? 'none' : '';
+        if (!isMobile) setPhoto(leftImg,leftNum,{...photos[first],number:first+1});
+        const shown = isMobile ? first : second;
+        setPhoto(rightImg,rightNum,{...photos[shown],number:shown+1});
+        current.textContent = pad(Math.floor(index/ (isMobile?1:2))+1);
+        const total = isMobile ? 10 : 5;
+        const page = isMobile ? index+1 : Math.floor(index/2)+1;
+        progress.style.width = (page/total*100)+'%';
+        prev.disabled = index===0;
+        next.disabled = index >= (isMobile?9:8);
+        spread.setAttribute('aria-label',isMobile?'Page '+(index+1)+' of 10':'Spread '+(Math.floor(index/2)+1)+' of 5');
+      }
+      function turn(direction) {
+        if (busy) return;
+        const step = mobile.matches ? 1 : 2;
+        const target = Math.max(0,Math.min(10-step,index+direction*step));
+        if (target===index) return;
+        busy = true;
+        spread.classList.add(direction>0?'is-turning-next':'is-turning-prev');
+        window.setTimeout(()=>{index=target;render();spread.classList.remove('is-turning-next','is-turning-prev');busy=false;},220);
+      }
+      prev.addEventListener('click',()=>turn(-1));
+      next.addEventListener('click',()=>turn(1));
+      if (mobile.addEventListener) mobile.addEventListener('change',render); else mobile.addListener(render);
+      render();
+    })();
+
     document.getElementById('year').textContent = new Date().getFullYear();
     lucide.createIcons();
   </script>
