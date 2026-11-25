@@ -70,7 +70,8 @@
       main{width:min(100%,1200px)}
     }
 \n  
-    .reveal{opacity:0;transform:translate3d(0,24px,0);transition:opacity .65s ease,transform .65s cubic-bezier(.2,.65,.3,1)} .reveal.revealed{opacity:1;transform:none} .reveal-delay-1{transition-delay:.08s}.reveal-delay-2{transition-delay:.16s}.reveal-delay-3{transition-delay:.24s} .photo-slot{transition:transform .3s ease,box-shadow .3s ease}.photo-slot:hover{transform:translateY(-3px);box-shadow:0 10px 25px rgba(42,24,16,.08)} @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}.photo-slot{transition:none}}
+    .hero-slide{opacity:0;transition:opacity 1.25s ease}.hero-slide.is-active{opacity:1}@media(prefers-reduced-motion:reduce){.hero-slide{transition:none}}
+        .reveal{opacity:0;transform:translate3d(0,24px,0);transition:opacity .65s ease,transform .65s cubic-bezier(.2,.65,.3,1)} .reveal.revealed{opacity:1;transform:none} .reveal-delay-1{transition-delay:.08s}.reveal-delay-2{transition-delay:.16s}.reveal-delay-3{transition-delay:.24s} .photo-slot{transition:transform .3s ease,box-shadow .3s ease}.photo-slot:hover{transform:translateY(-3px);box-shadow:0 10px 25px rgba(42,24,16,.08)} @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}.photo-slot{transition:none}}
 
     .logo-placeholder{flex-shrink:0}.logo-image{max-width:190px}.logo-placeholder.loaded{border-color:transparent;background:transparent;padding:0}.logo-placeholder.loaded .logo-fallback{display:none}@media(max-width:640px){.logo-image{max-width:145px;max-height:38px}.logo-placeholder{min-width:105px;min-height:36px;padding:5px 8px}}
 </style>
@@ -141,12 +142,16 @@
             <p class="mt-1 font-display text-lg uppercase text-[#684493]">Made with love</p>
           </div>
           <div class="rounded-[1.8rem] bg-[#684493] p-2.5 sm:p-3 shadow-xl shadow-[#4D326B]/15">
-            <div class="photo-slot relative min-h-[280px] sm:min-h-[390px] lg:min-h-[430px] rounded-[1.35rem] overflow-hidden border border-white/50 bg-gradient-to-br from-[#F5EAF8] via-[#E9DDF0] to-[#E5D4E8] text-[#684493]" role="img" aria-label="Space reserved for a real Creamy Ever After bakery photograph">
-              <img class="slot-photo hidden absolute inset-0 h-full w-full object-cover" src="assets/images/hero.jpg" alt="Creamy Ever After featured creation" />
-              <div class="p-6">
+            <div id="hero-slideshow" class="photo-slot relative min-h-[280px] sm:min-h-[390px] lg:min-h-[430px] rounded-[1.35rem] overflow-hidden border border-white/50 bg-gradient-to-br from-[#F5EAF8] via-[#E9DDF0] to-[#E5D4E8] text-[#684493]" role="img" aria-label="Rotating showcase of five real Creamy Ever After creations">
+              <img class="hero-slide absolute inset-0 h-full w-full object-cover" src="assets/images/hero/01.jpg" alt="Creamy Ever After featured creation 1" />
+              <img class="hero-slide absolute inset-0 h-full w-full object-cover" src="assets/images/hero/02.jpg" alt="Creamy Ever After featured creation 2" />
+              <img class="hero-slide absolute inset-0 h-full w-full object-cover" src="assets/images/hero/03.jpg" alt="Creamy Ever After featured creation 3" />
+              <img class="hero-slide absolute inset-0 h-full w-full object-cover" src="assets/images/hero/04.jpg" alt="Creamy Ever After featured creation 4" />
+              <img class="hero-slide absolute inset-0 h-full w-full object-cover" src="assets/images/hero/05.jpg" alt="Creamy Ever After featured creation 5" />
+              <div class="hero-fallback p-6">
                 <i data-lucide="image" class="mx-auto mb-3 h-10 w-10"></i>
-                <p class="text-xs font-extrabold uppercase tracking-wider">Your signature creation</p>
-                <p class="mt-1 text-[11px]">Real bakery photograph to be added</p>
+                <p class="text-xs font-extrabold uppercase tracking-wider">Five signature creations</p>
+                <p class="mt-1 text-[11px]">Your real bakery photos will appear here</p>
               </div>
             </div>
           </div>
@@ -277,7 +282,33 @@
 
     document.querySelectorAll("[data-logo-slot] img").forEach(img=>{img.addEventListener("load",()=>img.closest("[data-logo-slot]").classList.add("loaded"));img.addEventListener("error",()=>{img.classList.add("hidden")});});
 
-    document.querySelectorAll(".slot-photo").forEach(img=>{img.addEventListener("load",()=>{img.classList.remove("hidden");img.parentElement.querySelector("div")?.classList.add("hidden")});img.addEventListener("error",()=>img.classList.add("hidden"));});
+    const heroSlides=[...document.querySelectorAll("#hero-slideshow .hero-slide")];
+    const loadedHeroSlides=[];
+    let activeHeroIndex=-1;
+    let heroRotationStarted=false;
+    function showHeroSlide(index){
+      if(!loadedHeroSlides.length)return;
+      loadedHeroSlides.forEach((slide,i)=>slide.classList.toggle("is-active",i===index));
+      activeHeroIndex=index;
+    }
+    function startHeroRotation(){
+      if(heroRotationStarted||loadedHeroSlides.length<2)return;
+      heroRotationStarted=true;
+      window.setInterval(()=>showHeroSlide((activeHeroIndex+1)%loadedHeroSlides.length),4800);
+    }
+    heroSlides.forEach(img=>{
+      img.addEventListener("load",()=>{
+        if(!loadedHeroSlides.includes(img)){
+          loadedHeroSlides.push(img);
+          img.parentElement.querySelector(".hero-fallback")?.classList.add("hidden");
+          if(activeHeroIndex===-1)showHeroSlide(0);
+          startHeroRotation();
+        }
+      });
+      img.addEventListener("error",()=>img.remove());
+      if(img.complete&&img.naturalWidth>0)img.dispatchEvent(new Event("load"));
+    });
+        document.querySelectorAll(".slot-photo").forEach(img=>{img.addEventListener("load",()=>{img.classList.remove("hidden");img.parentElement.querySelector("div")?.classList.add("hidden")});img.addEventListener("error",()=>img.classList.add("hidden"));});
     document.querySelectorAll(".gallery-image").forEach(img=>{img.addEventListener("load",()=>{img.classList.remove("hidden");img.parentElement.querySelector(".gallery-fallback").classList.add("hidden");});img.addEventListener("error",()=>img.classList.add("hidden"));});
     document.getElementById('year').textContent = new Date().getFullYear();
     lucide.createIcons();
