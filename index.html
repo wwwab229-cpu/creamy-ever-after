@@ -75,28 +75,21 @@
 
     .logo-placeholder{flex-shrink:0}.logo-image{max-width:190px}.logo-placeholder.loaded{border-color:transparent;background:transparent;padding:0}.logo-placeholder.loaded .logo-fallback{display:none}@media(max-width:640px){.logo-image{max-width:145px;max-height:38px}.logo-placeholder{min-width:105px;min-height:36px;padding:5px 8px}}
 
-    /* Chocolate flows inside the hero panel in soft, layered molten ribbons — not as a border */
-    .hero-lava-badge{display:inline-flex;align-items:center;border:1px solid rgba(118,80,168,.18);border-radius:9999px;padding:.68rem 1.05rem;background:rgba(255,250,243,.9);box-shadow:0 5px 16px rgba(61,36,25,.06)}
-    .hero-lava-badge__inner{display:inline-flex;align-items:center;gap:.55rem;color:#4b2b20;font-size:10px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;line-height:1.2}
+    /* Multi-layer molten chocolate border: glossy ribbons continuously cascade downward */
+    .hero-lava-badge{position:relative;isolation:isolate;display:inline-flex;align-items:center;border:0;border-radius:9999px;padding:7px;overflow:hidden;background:#2a120b;box-shadow:0 7px 20px rgba(42,18,11,.18)}
+    .hero-lava-badge::before{content:"";position:absolute;z-index:-1;inset:-65% -12%;border-radius:42%;background:
+      radial-gradient(ellipse 23% 17% at 12% 8%,#b87548 0 42%,#63351f 58%,transparent 72%),
+      radial-gradient(ellipse 30% 19% at 48% 28%,#8d4d2d 0 48%,#32170e 68%,transparent 78%),
+      radial-gradient(ellipse 25% 18% at 82% 14%,#c08050 0 35%,#5a2c19 62%,transparent 76%),
+      radial-gradient(ellipse 32% 18% at 28% 62%,#7c4126 0 46%,#2a120b 68%,transparent 80%),
+      radial-gradient(ellipse 27% 16% at 72% 78%,#a8643c 0 42%,#3a1b10 66%,transparent 80%),
+      linear-gradient(180deg,#291108 0%,#794329 22%,#32170e 45%,#9b5b36 66%,#2a120b 100%);
+      background-size:100% 62%;background-repeat:repeat-y;filter:saturate(1.15);animation:chocolate-lava-flow 3.1s linear infinite;pointer-events:none}
+    .hero-lava-badge::after{content:"";position:absolute;z-index:-1;inset:0;border-radius:inherit;padding:1px;background:linear-gradient(180deg,rgba(255,220,180,.8),rgba(74,35,19,.15) 38%,rgba(255,205,155,.55) 70%,rgba(35,14,8,.7));-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
+    .hero-lava-badge__inner{display:inline-flex;align-items:center;gap:.55rem;border-radius:9999px;background:#fffaf3;padding:.68rem 1.05rem;color:#4b2b20;font-size:10px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;line-height:1.2;position:relative;z-index:1}
     .hero-lava-badge__dot{width:7px;height:7px;flex:0 0 7px;border-radius:50%;background:#7650A8;box-shadow:0 0 0 3px rgba(118,80,168,.12)}
-    .hero-chocolate-flow{position:absolute;inset:0;z-index:0;overflow:hidden;pointer-events:none;border-radius:inherit;opacity:.9}
-    .hero-chocolate-flow::before,.hero-chocolate-flow::after{content:"";position:absolute;top:-42%;right:3%;width:58%;height:145%;border-radius:0 0 48% 42%;background:
-      radial-gradient(ellipse 9% 13% at 9% 7%,#9a5b38 0 62%,transparent 70%),
-      radial-gradient(ellipse 7% 10% at 25% 9%,#4a2417 0 66%,transparent 74%),
-      radial-gradient(ellipse 11% 15% at 43% 5%,#a66a43 0 60%,transparent 72%),
-      radial-gradient(ellipse 8% 12% at 61% 8%,#5a2c1b 0 64%,transparent 73%),
-      radial-gradient(ellipse 12% 17% at 80% 4%,#8a4b2d 0 60%,transparent 72%),
-      linear-gradient(90deg,transparent 0 7%,rgba(83,42,26,.28) 8% 12%,transparent 13% 22%,rgba(49,22,13,.35) 23% 29%,transparent 30% 40%,rgba(129,76,45,.3) 41% 47%,transparent 48% 58%,rgba(54,25,15,.28) 59% 65%,transparent 66% 77%,rgba(111,61,35,.3) 78% 84%,transparent 85%);
-      filter:blur(1.2px);transform:translateY(-8%);animation:hero-chocolate-fall 7s ease-in-out infinite alternate}
-    .hero-chocolate-flow::after{right:8%;width:48%;opacity:.7;filter:blur(4px);transform:translateY(-15%) scaleX(.94);animation:hero-chocolate-fall 9s ease-in-out -2s infinite alternate}
-    .hero-chocolate-flow span{position:absolute;top:-12%;width:12%;height:120%;border-radius:0 0 48% 52%;background:linear-gradient(90deg,rgba(45,20,12,.04),rgba(67,31,18,.2) 24%,rgba(157,99,61,.22) 48%,rgba(48,21,13,.22) 72%,rgba(45,20,12,.02));filter:blur(2px);animation:hero-chocolate-stream 6.5s ease-in-out infinite}
-    .hero-chocolate-flow span:nth-child(1){right:13%;height:112%;animation-delay:-1.2s}
-    .hero-chocolate-flow span:nth-child(2){right:29%;height:94%;width:9%;animation-delay:-3.4s}
-    .hero-chocolate-flow span:nth-child(3){right:45%;height:105%;width:14%;animation-delay:-2.1s}
-    @keyframes hero-chocolate-fall{0%{transform:translateY(-9%) skewX(-1deg)}100%{transform:translateY(13%) skewX(1.5deg)}}
-    @keyframes hero-chocolate-stream{0%,100%{transform:translateY(-5%) scaleY(.92)}50%{transform:translateY(9%) scaleY(1.06)}}
-    @media(max-width:640px){.hero-chocolate-flow{opacity:.48}.hero-chocolate-flow::before,.hero-chocolate-flow::after{right:-10%;width:78%}.hero-chocolate-flow span:nth-child(3){display:none}}
-    @media(prefers-reduced-motion:reduce){.hero-chocolate-flow::before,.hero-chocolate-flow::after,.hero-chocolate-flow span{animation:none;transform:none}}
+    @keyframes chocolate-lava-flow{from{transform:translateY(-22%)}to{transform:translateY(22%)}}
+    @media(prefers-reduced-motion:reduce){.hero-lava-badge::before{animation:none;transform:none}}
 </style>
 </head>
 <body class="bg-cream-50 text-espresso-900 font-sans antialiased selection:bg-sunshine-400 selection:text-espresso-900 overflow-x-hidden">
@@ -138,7 +131,6 @@
     <section class="hero-section relative overflow-hidden rounded-[2rem] sm:rounded-[2.25rem] border border-[#E7DCCF] bg-[#F7F1E9] p-6 sm:p-9 lg:p-12 shadow-sm">
       <div aria-hidden="true" class="pointer-events-none absolute -right-20 -top-24 h-64 w-64 rounded-full bg-[#7650A8]/10 blur-2xl"></div>
       <div aria-hidden="true" class="pointer-events-none absolute left-[42%] bottom-[-6rem] h-52 w-52 rounded-full border-[28px] border-[#7650A8]/[0.07]"></div>
-      <div class="hero-chocolate-flow" aria-hidden="true"><span></span><span></span><span></span></div>
       <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
         <div class="lg:col-span-6 space-y-5 sm:space-y-6">
           <span class="hero-lava-badge"><span class="hero-lava-badge__inner"><span class="hero-lava-badge__dot"></span> Not Just Sweet. A Feeling.</span></span>
