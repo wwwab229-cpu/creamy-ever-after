@@ -544,31 +544,38 @@
     document.querySelectorAll("[data-logo-slot] img").forEach(img=>{img.addEventListener("load",()=>{img.classList.remove("hidden");img.closest("[data-logo-slot]").classList.add("loaded")});img.addEventListener("error",()=>{img.classList.add("hidden")});});
 
     const heroSlides=[...document.querySelectorAll("#hero-slideshow .hero-slide")];
-    const loadedHeroSlides=[];
-    let activeHeroIndex=0;
-    let heroRotationStarted=false;
-    function showHeroSlide(index){
-      if(!loadedHeroSlides.length)return;
-      loadedHeroSlides.forEach((slide,i)=>slide.classList.toggle("is-active",i===index));
-      activeHeroIndex=index;
-    }
+    const heroFallback=document.querySelector("#hero-slideshow .hero-fallback");
+    let heroSettledCount=0;
+    let heroStarted=false;
     function startHeroRotation(){
-      if(heroRotationStarted||loadedHeroSlides.length<2)return;
-      heroRotationStarted=true;
-      showHeroSlide(0);
-      window.setInterval(()=>showHeroSlide((activeHeroIndex+1)%loadedHeroSlides.length),2000);
+      if(heroStarted||heroSettledCount<heroSlides.length)return;
+      heroStarted=true;
+      const usableSlides=heroSlides.filter(img=>img.dataset.heroLoaded==="true");
+      if(!usableSlides.length)return;
+      heroFallback?.classList.add("hidden");
+      let index=0;
+      function display(){
+        heroSlides.forEach(slide=>{
+          const active=usableSlides[index]===slide;
+          slide.classList.toggle("is-active",active);
+          slide.style.opacity=active?"1":"0";
+          slide.style.zIndex=active?"2":"1";
+        });
+      }
+      display();
+      if(usableSlides.length>1)window.setInterval(()=>{index=(index+1)%usableSlides.length;display();},2000);
     }
     heroSlides.forEach(img=>{
-      img.addEventListener("load",()=>{
-        if(!loadedHeroSlides.includes(img)){
-          loadedHeroSlides.push(img);
-          loadedHeroSlides.sort((a,b)=>heroSlides.indexOf(a)-heroSlides.indexOf(b));
-          img.parentElement.querySelector(".hero-fallback")?.classList.add("hidden");
-          if(!heroRotationStarted){showHeroSlide(0);startHeroRotation();}
-        }
-      });
-      img.addEventListener("error",()=>img.remove());
-      if(img.complete&&img.naturalWidth>0)img.dispatchEvent(new Event("load"));
+      const settle=loaded=>{
+        if(img.dataset.heroSettled==="true")return;
+        img.dataset.heroSettled="true";
+        img.dataset.heroLoaded=loaded?"true":"false";
+        heroSettledCount++;
+        startHeroRotation();
+      };
+      img.addEventListener("load",()=>settle(img.naturalWidth>0),{once:true});
+      img.addEventListener("error",()=>settle(false),{once:true});
+      if(img.complete)settle(img.naturalWidth>0);
     });
         document.querySelectorAll(".slot-photo").forEach(img=>{img.addEventListener("load",()=>{img.classList.remove("hidden");img.parentElement.querySelector("div")?.classList.add("hidden")});img.addEventListener("error",()=>img.classList.add("hidden"));});
     document.querySelectorAll(".gallery-image").forEach(img=>{img.addEventListener("load",()=>{img.classList.remove("hidden");img.parentElement.querySelector(".gallery-fallback").classList.add("hidden");});img.addEventListener("error",()=>img.classList.add("hidden"));});
