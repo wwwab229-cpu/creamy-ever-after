@@ -346,6 +346,16 @@
     @media (max-width:1023px){.reveal{visibility:visible}}
 
   
+  
+    /* Subtle scroll-led entrances: content stays visible unless motion is supported and enabled. */
+    .scroll-motion{will-change:opacity,transform;transition:opacity .75s cubic-bezier(.2,.7,.25,1),transform .85s cubic-bezier(.2,.7,.25,1);transition-delay:var(--scroll-motion-delay,0ms)}
+    html.scroll-motion-ready .scroll-motion:not(.scroll-motion-visible){opacity:0!important;transform:translate3d(0,26px,0) scale(.985)!important}
+    html.scroll-motion-ready .scroll-motion.scroll-motion-from-left:not(.scroll-motion-visible){transform:translate3d(-22px,12px,0) scale(.99)!important}
+    html.scroll-motion-ready .scroll-motion.scroll-motion-from-right:not(.scroll-motion-visible){transform:translate3d(22px,12px,0) scale(.99)!important}
+    .scroll-motion.scroll-motion-visible{opacity:1!important;transform:translate3d(0,0,0) scale(1)!important}
+    .floating-card.scroll-motion{transition:opacity .8s ease,transform .9s cubic-bezier(.2,.7,.25,1),box-shadow .38s ease}
+    @media(prefers-reduced-motion:reduce){.scroll-motion,.floating-card.scroll-motion{transition:none!important;will-change:auto}html.scroll-motion-ready .scroll-motion:not(.scroll-motion-visible){opacity:1!important;transform:none!important}}
+
   </style>
 </head>
 <body class="bg-cream-50 text-espresso-900 font-sans antialiased selection:bg-sunshine-400 selection:text-espresso-900 overflow-x-hidden">
@@ -687,6 +697,29 @@
 
 
 
+
+
+    // Scroll-led reveal: gentle, staggered entrances for sections, cards and footer columns.
+    if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      const motionTargets = [
+        ...document.querySelectorAll('main > section:not(:first-child), main section article, .floating-card, footer .grid > *, footer > div > .border-t, footer > div > .flex')
+      ];
+      motionTargets.forEach((el, index) => {
+        el.classList.add('scroll-motion');
+        if (el.matches('.floating-card')) el.classList.add(index % 2 ? 'scroll-motion-from-right' : 'scroll-motion-from-left');
+        el.style.setProperty('--scroll-motion-delay', (index % 4) * 75 + 'ms');
+      });
+      const motionObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('scroll-motion-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.08, rootMargin: '0px 0px -7% 0px' });
+      motionTargets.forEach(el => motionObserver.observe(el));
+      document.documentElement.classList.add('scroll-motion-ready');
+    }
 
     document.getElementById('year').textContent = new Date().getFullYear();
     lucide.createIcons();
