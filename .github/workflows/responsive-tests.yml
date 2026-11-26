@@ -43,3 +43,12 @@ jobs:
           path: playwright-report/
           if-no-files-found: ignore
           retention-days: 14
+
+      - name: Upload responsive visual screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: responsive-visual-screenshots
+          path: visual-screenshots/
+          if-no-files-found: ignore
+          retention-days: 14
