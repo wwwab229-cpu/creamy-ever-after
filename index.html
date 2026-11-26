@@ -545,7 +545,7 @@
 
     const heroSlides=[...document.querySelectorAll("#hero-slideshow .hero-slide")];
     const loadedHeroSlides=[];
-    let activeHeroIndex=-1;
+    let activeHeroIndex=0;
     let heroRotationStarted=false;
     function showHeroSlide(index){
       if(!loadedHeroSlides.length)return;
@@ -555,14 +555,16 @@
     function startHeroRotation(){
       if(heroRotationStarted||loadedHeroSlides.length<2)return;
       heroRotationStarted=true;
-      window.setInterval(()=>showHeroSlide((activeHeroIndex+1)%loadedHeroSlides.length),4800);
+      showHeroSlide(0);
+      window.setInterval(()=>showHeroSlide((activeHeroIndex+1)%loadedHeroSlides.length),2000);
     }
     heroSlides.forEach(img=>{
       img.addEventListener("load",()=>{
         if(!loadedHeroSlides.includes(img)){
           loadedHeroSlides.push(img);
+          loadedHeroSlides.sort((a,b)=>heroSlides.indexOf(a)-heroSlides.indexOf(b));
           img.parentElement.querySelector(".hero-fallback")?.classList.add("hidden");
-          if(activeHeroIndex===-1)showHeroSlide(0);
+          showHeroSlide(0);
           startHeroRotation();
         }
       });
