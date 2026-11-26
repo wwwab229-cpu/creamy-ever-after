@@ -247,6 +247,12 @@
     /* Restore content visibility if reveal animation initialization is delayed */
     @media (max-width:1023px){.reveal{visibility:visible}}
 
+  
+    /* Hero photo-frame polish trial: intentionally finish any visible side-space */
+    #hero-slideshow{background:radial-gradient(ellipse at 18% 20%,rgba(255,255,255,.55),transparent 45%),linear-gradient(135deg,#E9DDF0 0%,#DCC9E8 48%,#F4E5DC 100%)!important;border:1px solid rgba(255,255,255,.75)!important;box-shadow:inset 0 0 0 1px rgba(104,68,147,.08)}
+    #hero-slideshow .hero-slide{object-fit:cover;object-position:center}
+    @media(min-width:641px){#hero-slideshow{background:linear-gradient(135deg,#E9DDF0,#DCC9E8,#F4E5DC)!important}}
+
   </style>
 </head>
 <body class="bg-cream-50 text-espresso-900 font-sans antialiased selection:bg-sunshine-400 selection:text-espresso-900 overflow-x-hidden">
