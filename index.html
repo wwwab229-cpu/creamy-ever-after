@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#FFFDF9" />
   <meta name="description" content="Creamy Ever After — homemade cakes, cupcakes, brownies, customized baking and sweet gifts. Share your order on WhatsApp." />
+  <link rel="preload" as="image" href="assets/logo/Meta_AI_creamy_ever_after_purple_logo_website_20261126_142816.png" fetchpriority="high" />
   <title>Creamy Ever After | Bakery & Custom Orders</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -351,7 +352,7 @@
   <header class="fixed top-0 left-0 right-0 w-full z-50 bg-cream-50/95 backdrop-blur-md border-b border-cream-200">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 h-[76px] flex items-center justify-between gap-4">
       <a href="#home" class="flex flex-col items-center justify-center gap-1 shrink-0 leading-none" aria-label="Creamy Ever After home">
-        <div class="logo-placeholder flex items-center justify-center rounded-xl border border-espresso-900/15 bg-cream-100 px-3 py-2 min-w-[130px] sm:min-w-[170px] min-h-[42px]" data-logo-slot><img src="assets/logo/Meta_AI_creamy_ever_after_purple_logo_website_20261126_142816.png" alt="Creamy Ever After logo" class="logo-image hidden max-h-12 w-auto object-contain" /><span class="logo-fallback text-[9px] sm:text-[10px] font-extrabold uppercase tracking-widest text-espresso-800/60">Logo space</span></div>
+        <div class="logo-placeholder flex items-center justify-center rounded-xl border border-espresso-900/15 bg-cream-100 px-3 py-2 min-w-[130px] sm:min-w-[170px] min-h-[42px]" data-logo-slot><img src="assets/logo/Meta_AI_creamy_ever_after_purple_logo_website_20261126_142816.png" alt="Creamy Ever After logo" class="logo-image hidden max-h-12 w-auto object-contain" loading="eager" fetchpriority="high" decoding="async" /><span class="logo-fallback text-[9px] sm:text-[10px] font-extrabold uppercase tracking-widest text-espresso-800/60">Logo space</span></div>
         <span class="font-serif text-[11px] sm:text-xs font-semibold tracking-wide normal-case text-[#684493]">Creamy Ever After</span>
       </a>
       <nav class="hidden md:flex items-center gap-6 text-[11px] font-extrabold uppercase tracking-wider">
@@ -609,7 +610,7 @@
     const revealEls=document.querySelectorAll('main section, main section article, main section > div > div'); revealEls.forEach(el=>el.classList.add('reveal'));
     if('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches){const io=new IntersectionObserver((entries,obs)=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('revealed');obs.unobserve(e.target)}}),{threshold:.12,rootMargin:'0px 0px -30px 0px'});document.querySelectorAll('.reveal').forEach(el=>io.observe(el));}else{document.querySelectorAll('.reveal').forEach(el=>el.classList.add('revealed'));}
 
-    document.querySelectorAll("[data-logo-slot] img").forEach(img=>{img.addEventListener("load",()=>{img.classList.remove("hidden");img.closest("[data-logo-slot]").classList.add("loaded")});img.addEventListener("error",()=>{img.classList.add("hidden")});});
+    document.querySelectorAll("[data-logo-slot] img").forEach(img=>{const slot=img.closest("[data-logo-slot]");const reveal=()=>{if(img.naturalWidth>0){img.classList.remove("hidden");slot?.classList.add("loaded");}};const hide=()=>{img.classList.add("hidden");slot?.classList.remove("loaded");};img.addEventListener("load",reveal,{once:true});img.addEventListener("error",hide,{once:true});if(img.complete){if(img.naturalWidth>0)reveal();else hide();}});
 
     const heroSlides=[...document.querySelectorAll("#hero-slideshow .hero-slide")];
     const heroFallback=document.querySelector("#hero-slideshow .hero-fallback");
