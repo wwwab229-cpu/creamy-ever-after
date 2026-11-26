@@ -54,3 +54,31 @@ test('footer fits within viewport width on mobile', async ({ page }) => {
   expect(bounds.left).toBeGreaterThanOrEqual(-1);
   expect(bounds.right).toBeLessThanOrEqual(361);
 });
+
+test('capture full-page visual review screenshots', async ({ page }) => {
+  const snapshots = [
+    { name: 'mobile-390', width: 390, height: 844 },
+    { name: 'tablet-768', width: 768, height: 1024 },
+    { name: 'desktop-1440', width: 1440, height: 900 }
+  ];
+
+  for (const viewport of snapshots) {
+    await page.setViewportSize({ width: viewport.width, height: viewport.height });
+    await page.goto(url, { waitUntil: 'networkidle' });
+    await page.evaluate(async () => {
+      if (document.fonts?.ready) await document.fonts.ready;
+      await Promise.all([...document.images].map(img => {
+        if (img.complete) return Promise.resolve();
+        return new Promise(resolve => {
+          img.addEventListener('load', resolve, { once: true });
+          img.addEventListener('error', resolve, { once: true });
+        });
+      }));
+    });
+    await page.screenshot({
+      path: `visual-screenshots/${viewport.name}.png`,
+      fullPage: true,
+      animations: 'disabled'
+    });
+  }
+});
