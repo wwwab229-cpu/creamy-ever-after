@@ -1,0 +1,6 @@
+{
+  "name": "creamy-ever-after-responsive-tests",
+  "private": true,
+  "scripts": { "test:responsive": "playwright test" },
+  "devDependencies": { "@playwright/test": "^1.56.1" }
+}
