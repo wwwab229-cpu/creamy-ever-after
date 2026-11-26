@@ -197,6 +197,56 @@
     /* Keep the new post-gallery content visible even if scroll-reveal scripts are delayed or blocked */
     #gifts.reveal,#gifts .reveal,#moments.reveal,#moments .reveal,#order-process.reveal,#order-process .reveal{opacity:1!important;transform:none!important}
 
+  
+    /* Final responsive pass — preserve existing design and theme; only adjust layout and visibility */
+    @media (max-width: 767px){
+      html,body{width:100%;max-width:100%;overflow-x:clip}
+      header,header nav,header>div,main,footer,footer>div{min-width:0;max-width:100%}
+      header .max-w-6xl{width:100%;max-width:100%;}
+      #mobile-nav{width:100%;max-width:100%;overflow-wrap:anywhere}
+      main section{width:100%;min-width:0}
+      main section .flex,main section .grid{min-width:0}
+      main section .flex>*{min-width:0;max-width:100%}
+      main section a.pill-btn{white-space:normal;text-align:center;max-width:100%}
+      #hero-slideshow{min-width:0;width:100%;max-width:100%}
+      #hero-slideshow img{max-width:100%;height:100%;object-fit:cover}
+      #creations .floating-gallery{width:100%;max-width:100%}
+      #creations .floating-card{min-width:0}
+      #gifts,#moments,#customize,#order-process{min-width:0;width:100%}
+      #moments .grid,#order-process .grid{width:100%;grid-template-columns:minmax(0,1fr)}
+      #customize>div{min-width:0}
+      #customize a{white-space:normal}
+      footer .grid,footer .grid>*{min-width:0;max-width:100%}
+      footer .grid.grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+      footer .grid.grid-cols-2>*{min-width:0}
+      footer button,footer a{white-space:normal;overflow-wrap:anywhere}
+      footer .grid.grid-cols-2 span{min-width:0}
+      footer .grid.grid-cols-2 span span{overflow-wrap:anywhere}
+    }
+    @media (max-width: 360px){
+      main{padding-left:10px!important;padding-right:10px!important}
+      main section:first-child{padding:16px!important}
+      main section:first-child h1{font-size:clamp(2rem,9.6vw,2.5rem)!important}
+      .floating-gallery{gap:8px!important;grid-auto-rows:100px!important}
+      footer .grid.grid-cols-2{gap:8px!important}
+      footer .grid.grid-cols-2>*{padding-left:8px!important;padding-right:8px!important}
+      footer .grid.grid-cols-2 span span:last-child{font-size:9px!important}
+    }
+    @media (min-width:768px) and (max-width:1023px){
+      main{width:100%;max-width:100%;padding-left:clamp(24px,4vw,40px)!important;padding-right:clamp(24px,4vw,40px)!important}
+      main section{min-width:0}
+      main section .grid{min-width:0}
+      #moments .grid,#order-process .grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+      footer .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+      footer .grid>*{min-width:0}
+    }
+    @media (min-width:1024px){
+      main{width:min(100%,1200px);max-width:1200px}
+      footer>div{width:min(100%,1200px)}
+    }
+    /* Restore content visibility if reveal animation initialization is delayed */
+    @media (max-width:1023px){.reveal{visibility:visible}}
+
   </style>
 </head>
 <body class="bg-cream-50 text-espresso-900 font-sans antialiased selection:bg-sunshine-400 selection:text-espresso-900 overflow-x-hidden">
