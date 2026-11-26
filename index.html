@@ -121,6 +121,74 @@
       .hero-photo-frame{transition:none}
     }
 
+
+
+    /* Premium bakery paper tags — scoped only to the two hero floating labels. */
+    .hero-bakery-tag{
+      position:absolute;
+      z-index:10;
+      isolation:isolate;
+      display:flex;
+      flex-direction:column;
+      gap:5px;
+      min-width:0;
+      padding:13px 17px 14px;
+      border:1px solid #C9A96E;
+      border-radius:5px;
+      background:linear-gradient(145deg,#FFFCF5 0%,#F7EFDF 100%);
+      box-shadow:0 9px 22px rgba(61,36,25,.16),0 2px 5px rgba(61,36,25,.07),inset 0 1px 0 rgba(255,255,255,.95);
+      color:#493329;
+    }
+    .hero-bakery-tag::before{
+      content:"";
+      position:absolute;
+      z-index:-1;
+      inset:4px;
+      border:1px solid rgba(185,145,82,.42);
+      pointer-events:none;
+    }
+    .hero-bakery-tag::after{
+      content:"";
+      position:absolute;
+      top:7px;
+      right:9px;
+      width:5px;
+      height:5px;
+      border-radius:50%;
+      background:#B99052;
+      box-shadow:0 0 0 2px rgba(185,144,82,.12);
+    }
+    .hero-bakery-tag__eyebrow{
+      margin:0;
+      padding-right:9px;
+      color:#8A7055;
+      font-family:"Plus Jakarta Sans",system-ui,sans-serif;
+      font-size:8px;
+      font-weight:800;
+      line-height:1.35;
+      letter-spacing:.17em;
+      text-transform:uppercase;
+    }
+    .hero-bakery-tag__title{
+      margin:0;
+      color:#493329;
+      font-family:Georgia,"Times New Roman",serif;
+      font-size:clamp(13px,1.35vw,16px);
+      font-weight:600;
+      line-height:1.2;
+      letter-spacing:.005em;
+    }
+    .hero-bakery-tag--top .hero-bakery-tag__title{color:#684493;font-size:clamp(15px,1.55vw,18px)}
+    .hero-bakery-tag--bottom .hero-bakery-tag__title{font-size:clamp(12px,1.2vw,14px)}
+    @media(max-width:640px){
+      .hero-bakery-tag{padding:11px 13px 12px;gap:4px;border-radius:4px;max-width:calc(100vw - 42px)}
+      .hero-bakery-tag::before{inset:3px}
+      .hero-bakery-tag::after{top:6px;right:7px;width:4px;height:4px}
+      .hero-bakery-tag__eyebrow{font-size:7px;letter-spacing:.14em}
+      .hero-bakery-tag--top .hero-bakery-tag__title{font-size:14px}
+      .hero-bakery-tag--bottom .hero-bakery-tag__title{font-size:11px}
+    }
+
     /* Hero frame stability: keep photos clipped to the frame and prevent hover/tap movement. */
     #hero-slideshow,#hero-slideshow:hover,#hero-slideshow:active,#hero-slideshow:focus,#hero-slideshow:focus-within{transform:none!important;box-shadow:none!important;}
     #hero-slideshow{overflow:hidden;isolation:isolate;touch-action:pan-y;}
@@ -361,9 +429,9 @@
           </div>
         </div>
         <div class="lg:col-span-6 relative">
-          <div class="absolute -right-2 -top-3 sm:right-0 sm:-top-4 z-10 rounded-2xl border border-white/70 bg-white/90 px-4 py-3 shadow-lg shadow-[#4D326B]/10 backdrop-blur-sm">
-            <p class="text-[9px] font-extrabold uppercase tracking-[.18em] text-[#8A7567]">A little something</p>
-            <p class="mt-1 font-display text-lg uppercase text-[#684493]">Made with love</p>
+          <div class="hero-bakery-tag hero-bakery-tag--top absolute -right-2 -top-3 sm:right-0 sm:-top-4 z-10">
+            <p class="hero-bakery-tag__eyebrow">A little something</p>
+            <p class="hero-bakery-tag__title">Made with love</p>
           </div>
           <div class="hero-photo-frame rounded-[1.8rem] p-2.5 sm:p-3">
             <div id="hero-slideshow" class="photo-slot relative min-h-[280px] sm:min-h-[390px] lg:min-h-[430px] rounded-[1.35rem] overflow-hidden border border-white/50 bg-gradient-to-br from-[#F5EAF8] via-[#E9DDF0] to-[#E5D4E8] text-[#684493]" role="img" aria-label="Rotating showcase of five real Creamy Ever After creations">
@@ -379,9 +447,9 @@
               </div>
             </div>
           </div>
-          <div class="absolute -bottom-4 -left-2 sm:-left-5 rounded-2xl border border-[#E7DCCF] bg-[#FFFDF9] px-4 py-3 shadow-lg shadow-[#38251F]/10">
-            <p class="text-[9px] font-extrabold uppercase tracking-[.16em] text-[#8A7567]">For every occasion</p>
-            <p class="mt-1 text-xs font-extrabold text-[#493329]">Your idea, our creation.</p>
+          <div class="hero-bakery-tag hero-bakery-tag--bottom absolute -bottom-4 -left-2 sm:-left-5">
+            <p class="hero-bakery-tag__eyebrow">For every occasion</p>
+            <p class="hero-bakery-tag__title">Your idea, our creation.</p>
           </div>
         </div>
       </div>
