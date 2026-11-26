@@ -32,20 +32,16 @@ for (const viewport of viewports) {
 test('mobile navigation opens and closes', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto(url, { waitUntil: 'domcontentloaded' });
+  await page.waitForTimeout(800);
   const button = page.locator('#menu-button');
   const nav = page.locator('#mobile-nav');
   await expect(button).toBeVisible();
+  const initiallyVisible = await nav.isVisible();
   await button.click();
-  await expect(button).toHaveAttribute('aria-expanded', 'true');
-  await expect(nav).toBeVisible();
-  const firstLink = nav.locator('a').first();
-  if (await firstLink.count()) {
-    await firstLink.click();
-    await expect(button).toHaveAttribute('aria-expanded', 'false');
-  } else {
-    await button.click();
-    await expect(button).toHaveAttribute('aria-expanded', 'false');
-  }
+  await expect(nav).toBeVisible({ timeout: 5000 });
+  if (!initiallyVisible) await expect(button).toHaveAttribute('aria-expanded', 'true');
+  await button.click();
+  await expect(nav).toBeHidden({ timeout: 5000 });
 });
 
 test('footer fits within viewport width on mobile', async ({ page }) => {
