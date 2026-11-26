@@ -564,8 +564,7 @@
           loadedHeroSlides.push(img);
           loadedHeroSlides.sort((a,b)=>heroSlides.indexOf(a)-heroSlides.indexOf(b));
           img.parentElement.querySelector(".hero-fallback")?.classList.add("hidden");
-          showHeroSlide(0);
-          startHeroRotation();
+          if(!heroRotationStarted){showHeroSlide(0);startHeroRotation();}
         }
       });
       img.addEventListener("error",()=>img.remove());
