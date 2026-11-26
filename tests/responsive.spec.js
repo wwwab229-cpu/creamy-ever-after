@@ -75,6 +75,17 @@ test('capture full-page visual review screenshots', async ({ page }) => {
         });
       }));
     });
+    // Scroll through the document to activate intersection-observer reveal animations
+    // and load below-the-fold media before capturing the full-page screenshot.
+    await page.evaluate(async () => {
+      const step = Math.max(300, Math.floor(window.innerHeight * 0.75));
+      for (let y = 0; y < document.documentElement.scrollHeight; y += step) {
+        window.scrollTo(0, y);
+        await new Promise(resolve => setTimeout(resolve, 120));
+      }
+      window.scrollTo(0, 0);
+    });
+    await page.waitForTimeout(800);
     await page.screenshot({
       path: `visual-screenshots/${viewport.name}.png`,
       fullPage: true,
