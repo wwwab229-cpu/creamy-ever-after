@@ -43,7 +43,7 @@
     .photo-slot{width:100%;overflow:hidden;position:relative}.photo-slot .slot-photo{z-index:1}.photo-slot>div:not(.slot-photo){position:relative;z-index:2}
     h1,h2,h3,p,a{overflow-wrap:anywhere}
     @media(max-width:640px){
-      header .max-w-6xl{height:82px!important;min-height:82px!important;align-items:center!important;padding-top:6px!important;padding-bottom:6px!important}
+      header .max-w-6xl{height:82px!important;min-height:82px!important;align-items:center!important;padding-top:6px!important;padding-bottom:6px!important}#fixed-header-spacer{height:82px!important}
       header a[aria-label="Creamy Ever After home"]{gap:3px}
       #mobile-nav a{padding:10px 4px;min-height:40px}
       main{padding-left:14px!important;padding-right:14px!important}
@@ -342,7 +342,7 @@
   </style>
 </head>
 <body class="bg-cream-50 text-espresso-900 font-sans antialiased selection:bg-sunshine-400 selection:text-espresso-900 overflow-x-hidden">
-  <header class="sticky top-0 z-40 bg-cream-50/95 backdrop-blur-md border-b border-cream-200">
+  <header class="fixed top-0 left-0 right-0 w-full z-50 bg-cream-50/95 backdrop-blur-md border-b border-cream-200">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 h-[76px] flex items-center justify-between gap-4">
       <a href="#home" class="flex flex-col items-center justify-center gap-1 shrink-0 leading-none" aria-label="Creamy Ever After home">
         <div class="logo-placeholder flex items-center justify-center rounded-xl border border-espresso-900/15 bg-cream-100 px-3 py-2 min-w-[130px] sm:min-w-[170px] min-h-[42px]" data-logo-slot><img src="assets/logo/Meta_AI_creamy_ever_after_purple_logo_website_20261126_142816.png" alt="Creamy Ever After logo" class="logo-image hidden max-h-12 w-auto object-contain" /><span class="logo-fallback text-[9px] sm:text-[10px] font-extrabold uppercase tracking-widest text-espresso-800/60">Logo space</span></div>
@@ -370,6 +370,7 @@
       <a href="#contact" class="mobile-link block py-1">Contact / Order</a>
     </nav>
   </header>
+  <div id="fixed-header-spacer" aria-hidden="true" class="h-[76px] sm:h-[76px]"></div>
 
   <main id="home" class="max-w-6xl mx-auto px-4 sm:px-6 pt-5 sm:pt-7 pb-16 space-y-16 sm:space-y-24">
     <!-- Hero: premium editorial layout with balanced purple brand accents -->
